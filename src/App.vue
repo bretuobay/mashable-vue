@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  <ul class="nav__left">
+  <!-- <ul class="nav__left">
 
           
           <li><router-link to="/">Home</router-link></li>
@@ -10,11 +10,13 @@
           <li><router-link to="/Technology">Tecghnology</router-link></li>
           <li><router-link to="/videos">Videos</router-link></li>
 
-        </ul>
+        </ul> -->
+        <site-header></site-header>
   
     
     <img src="./assets/logo.png">
     <router-view/>
+     <site-footer></site-footer>
     
   </div>
 </template>
@@ -23,7 +25,11 @@
 import SiteHeader from '@/components/Header'
 import SiteFooter from '@/components/Footer'
 export default {
-  name: 'app'
+  name: 'app',
+  components : {
+    'site-header' : SiteHeader,
+    'site-footer' : SiteFooter
+  }
 }
 </script>
 
