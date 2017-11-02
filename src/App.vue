@@ -12,7 +12,7 @@ import SiteFooter from '@/components/Footer'
 import store from './store/store'
 
 export default {
-  store,
+  //store,
   name: 'app',
   components : {
     'site-header' : SiteHeader,
