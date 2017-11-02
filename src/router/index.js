@@ -30,7 +30,7 @@ export default new Router({
       component: CulturePage
     },
     {
-      path: '/entertaiment',
+      path: '/entertainment',
       name: 'Entertainment',
       component: EntertainmentPage
     },
@@ -44,7 +44,7 @@ export default new Router({
       component: TechnologyPage
     },
     {
-      path: '/video',
+      path: '/videos',
       name: 'Video',
       component: VideoPage
     }
