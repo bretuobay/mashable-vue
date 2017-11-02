@@ -167,19 +167,12 @@
 </template>
 
 <script>
-
-import { mapGetters, mapActions } from 'vuex'
-import store from '../store/store'
 export default {
-  store,
   name: 'NewsBySource',
   data () {
     return {
       msg: 'NewsBySource'
     }
-  },
-  created : function(){
-   console.log(store.state.newsArticles)
   }
 }
 </script>
