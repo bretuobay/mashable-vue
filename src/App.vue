@@ -9,11 +9,14 @@
 <script>
 import SiteHeader from '@/components/Header'
 import SiteFooter from '@/components/Footer'
+import store from './store/store'
+
 export default {
+  store,
   name: 'app',
   components : {
     'site-header' : SiteHeader,
-    'site-footer' : SiteFooter
+    'site-footer' : SiteFooter,
   }
 }
 </script>

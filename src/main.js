@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import SiteHeader from '@/components/Header'
-import SiteFooter from '@/components/Footer'
 
 Vue.config.productionTip = false
 
