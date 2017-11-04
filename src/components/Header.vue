@@ -3,7 +3,7 @@
         <nav class="navbar navbar-toggleable-md">   
         <div class="container"> 
             <div class="navbar-header d-flex align-items-center justify-content-between">
-             <router-link  to="/" class="navbar-brand animsition-link">React Mashable Clone</router-link>
+             <router-link  to="/" class="navbar-brand animsition-link">{{siteName}}</router-link>
               <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
             </div>
             <div id="navbarcollapse" class="collapse navbar-collapse">
@@ -28,7 +28,7 @@ export default {
   name: 'SiteHeader',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      siteName : 'Vue Mashable Clone'
     }
   }
 }
@@ -36,21 +36,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
