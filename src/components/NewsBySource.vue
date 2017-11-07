@@ -176,23 +176,12 @@ export default {
   name: 'NewsBySource',
   data () {
     return {
-      articles : this.getWeatherDataByCity() || [],
+      articles :  [],
       msg: 'NewsBySource'
     }
   },
   methods : {
-       getWeatherDataByCity : function(){
-         let source = 'mashable'
-          return axios.get(`/?source=${source}&sortBy=latest&apiKey=${constants.NEWS_API_KEY}`)
-          .then((resp) => {
-            this.articles[resp.data.source] = resp.data.articles
-             console.log(this.articles)
-          }).catch((err) => {
-            console.log(err)
-          })
-          
-
-  }
+     
 }
 }
 </script>

@@ -1,11 +1,17 @@
 <template>
-   <news-by-source></news-by-source>
+<ul>
+  <li v-bind:key="article.title" v-for="article in mashableList">
+    {{article.title}}
+   
+  </li>
+</ul>
+   <!-- <news-by-source></news-by-source> -->
 </template>
 
 <script>
 
 import NewsBySource from '@/components/NewsBySource'
-
+import { mapActions, mapState, mapGetters  } from 'vuex'
 export default {
   name: 'HomePage',
   data () {
@@ -13,6 +19,22 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  created (){
+      this.getNewsBySource('mashable')
+      this.getNewsBySource('daily-mail')
+    
+  },
+  computed :  { 
+     ...mapState({newsArticles : (aticlesState)=> aticlesState.newsArticles}) ,
+      mashableList(){
+    let articles = this.$store.getters.getArticlesBySource('mashabble')
+    console.log(articles)
+        return articles
+      }
+      },
+  methods : { 
+    ...mapActions(['getNewsBySource']) 
+    },
   components :{
       'news-by-source' : NewsBySource
   }
