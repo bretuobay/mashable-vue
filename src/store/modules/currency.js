@@ -2,7 +2,7 @@
 
   import axios from "axios";
   import * as appConstant from "../../constants/appConstants";
-  import * as types from "../mutation-types";
+  import * as types from "../../constants/mutation-types";
   
   const state = {
     exchangeRates : {},

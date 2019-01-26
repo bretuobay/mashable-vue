@@ -20,7 +20,7 @@
                 </div>
                 <br />
                 <div class="h6 alert alert-info">
-                Humidity :{{weatherProps.main.humidity}}
+                Humidity :{{getHumidity(weatherProps)}}
                 </div>
                 <div class="pt-5">
                 </div>
@@ -60,10 +60,12 @@ export default {
        currentCity: "Kumasi"
       }
     },
+
     created(){
        this.getExchangeRatesList(this.$props.currencies)
        this.getWeatherData(this.currentCity)
     },
+
     computed : {
           ...mapState({
         exchangeRates: (state) => state.exchangeRates,
@@ -84,6 +86,8 @@ export default {
       ...mapActions(['getExchangeRatesList', 'getWeatherData']),
 
       convertedTemp : (weatherProps) => (roundN(get(weatherProps, 'main.temp', 0), 2) - 273.15).toFixed(2),
+
+      getHumidity : (weatherProps) => get(weatherProps,'main.humidity', null),
 
       debounceSearchInput: debounce(function(event) {
           this.currentCity = event.target.value;

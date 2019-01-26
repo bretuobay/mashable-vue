@@ -1,17 +1,16 @@
 import axios from "axios";
 import * as appConstant from "../../constants/appConstants";
-import { GET_WEATHER_FAILURE, GET_WEATHER_SUCCESS, GET_WEATHER_DATA } from '../mutation-types'
+import { GET_WEATHER_FAILURE, GET_WEATHER_SUCCESS, GET_WEATHER_DATA } from '../../constants/mutation-types'
 
 const state = {
   currentWeather: [],
   weatherError: {}
 }
 
-// mutations
 const mutations = {
-  // set key in array
+  
   [GET_WEATHER_DATA](state, source) {
-    state.currentWeather = state.currentWeather // TO check how this is done
+    state.currentWeather = state.currentWeather
   },
 
   [GET_WEATHER_FAILURE](state, error) {

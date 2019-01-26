@@ -2,7 +2,7 @@
 
   import axios from "axios";
   import * as appConstant from "../../constants/appConstants";
-  import * as types from "../mutation-types";
+  import * as types from "../../constants/mutation-types";
   
   const state = {
     newsArticles : {},
@@ -27,10 +27,8 @@
     }
   } 
 
-  
-  // mutations
   const mutations = {
-      // set key in array
+    
     [types.GET_NEWS_DATA] (state, source) {
       state.newsArticles[source] = []
     },
@@ -42,7 +40,6 @@
     [types.GET_NEWS_DATA_SUCCESS] (state, data) {
       state.newsArticles[data.source] = data.articles
     },
-  
   }
   
   export default {
