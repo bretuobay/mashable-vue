@@ -10,12 +10,15 @@
           ></news-by-source>
         </div>
       </main>
+      <side-bar></side-bar>
     </div>
   </div>
 </template>
 <script>
   import {MainSources} from '../helpers/news-sources'
   import NewsBySource from '@/components/NewsBySource'
+  import SideBar from '@/components/HomePageSideBar'
+
   export default {
     name: 'HomePage',
     data() {
@@ -25,7 +28,8 @@
       }
     },
     components: {
-      'news-by-source': NewsBySource
+      'news-by-source': NewsBySource,
+      'side-bar' : SideBar
     }
   
   }
