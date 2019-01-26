@@ -1,40 +1,35 @@
 <template>
-   <news-by-source></news-by-source>
+  <div class="container">
+    <div class="row">
+      <main class="posts-listing col-lg-8">
+        <div class="container">
+         <news-by-source
+            v-for="source in technologySources"
+            v-bind:key="source.id"
+            v-bind:source="source.id"
+          ></news-by-source>
+        </div>
+      </main>
+    </div>
+  </div>
 </template>
-
 <script>
-
-import NewsBySource from '@/components/NewsBySource'
-
-export default {
-  name: 'TechnologyPage',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import {TechnologySources} from '../helpers/news-sources'
+  import NewsBySource from '@/components/NewsBySource'
+  export default {
+    name: 'CulturePage',
+    data() {
+      return {
+        technologySources: TechnologySources,
+        msg: 'Welcome to Science Page'
+      }
+    },
+    components: {
+      'news-by-source': NewsBySource
     }
-  },
-  components : {
-     'news-by-source' : NewsBySource
+  
   }
-}
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
