@@ -39,7 +39,6 @@
     },
   
     created() {
-     // this.getNewsBySource('mashable')
       this.getNewsBySource(this.$props.source)
     },
   
@@ -49,7 +48,7 @@
       }),
   
       newsArticlesList() {
-        let articles = this.$store.getters.getArticlesBySource(this.$props.source)
+        const articles = this.$store.getters.getArticlesBySource(this.$props.source)
         return articles[this.$props.source];
       }
   

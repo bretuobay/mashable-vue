@@ -29,8 +29,8 @@
 
   const mutations = {
     
-    [types.GET_NEWS_DATA] (state, source) {
-      state.newsArticles[source] = []
+    [types.GET_NEWS_DATA] (state) {
+      state.newsArticles
     },
   
     [types.GET_NEWS_DATA_FAILURE] (state,error) {
