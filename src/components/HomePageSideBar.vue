@@ -1,46 +1,45 @@
 <template>
-<aside class="col-lg-4">
-            <div class="widget search">
-              <header>
-                <h3 class="h6">Search weather</h3>
-              </header>
-              <form action="#" class="search-form">
-                <div class="form-group">
-                  <input type="search" placeholder="Search for City" v-model="currentCity" @change="debounceSearchInput">
-                  <button type="submit" class="submit"><i class="icon-search"></i></button>
-                </div>
-              </form>
-
-              <div class="pt-5">
-                <div class="h6"> Currently displaying </div> <br />
-                <div class="h6 alert alert-warning"> City : {{weatherProps.name}}</div>
-                <br />
-                <div class="h6 alert alert-success">
-                Temperature : {{convertedTemp(weatherProps)}}
-                </div>
-                <br />
-                <div class="h6 alert alert-info">
-                Humidity :{{getHumidity(weatherProps)}}
-                </div>
-                <div class="pt-5">
-                </div>
+   <aside class="col-lg-4">
+      <div class="widget search">
+         <header>
+            <h3 class="h6">Search weather</h3>
+         </header>
+         <form action="#" class="search-form">
+            <div class="form-group">
+               <input type="search" placeholder="Search for City" v-model="currentCity" @change="debounceSearchInput">
+               <button type="submit" class="submit"><i class="icon-search"></i></button>
             </div>
+         </form>
+         <div class="pt-5">
+            <div class="h6"> Currently displaying </div>
+            <br />
+            <div class="h6 alert alert-warning"> City : {{weatherProps.name}}</div>
+            <br />
+            <div class="h6 alert alert-success">
+               Temperature : {{convertedTemp(weatherProps)}}
             </div>
-           
-            <div class="widget categories">
-              <header>
-                <h3 class="h6">Exchange Rates</h3>
-              </header>
-              <div class="item d-flex justify-content-between" v-bind:key="curr.symbol" v-for="curr in exchangeRatesList">
-                <ul class="list-group">
-                    <li class="list-group-item"> Symbol : {{curr.symbol}} </li>
-                    <li class="list-group-item"> Price : {{curr.price}} </li>
-                    <li class="list-group-item"> Bid : {{curr.bid}} </li>
-                    <li class="list-group-item"> Ask : {{curr.ask}} </li>
-                </ul>
+            <br />
+            <div class="h6 alert alert-info">
+               Humidity :{{getHumidity(weatherProps)}}
             </div>
+            <div class="pt-5">
             </div>
-          </aside>
+         </div>
+      </div>
+      <div class="widget categories">
+         <header>
+            <h3 class="h6">Exchange Rates</h3>
+         </header>
+         <div class="item d-flex justify-content-between" v-bind:key="curr.symbol" v-for="curr in exchangeRates">
+            <ul class="list-group">
+               <li class="list-group-item"> Symbol : {{curr.symbol}} </li>
+               <li class="list-group-item"> Price : {{curr.price}} </li>
+               <li class="list-group-item"> Bid : {{curr.bid}} </li>
+               <li class="list-group-item"> Ask : {{curr.ask}} </li>
+            </ul>
+         </div>
+      </div>
+   </aside>
 </template>
 
 <script>
@@ -60,27 +59,16 @@ export default {
        currentCity: "Kumasi"
       }
     },
-
     created(){
        this.getExchangeRatesList(this.$props.currencies)
        this.getWeatherData(this.currentCity)
     },
-
     computed : {
           ...mapState({
-        exchangeRates: (state) => state.exchangeRates,
-        weatherData: (state) => state.currentWeather
-      }),
-      
-      exchangeRatesList() {
-        const exRates = this.$store.getters.getExchangeRates()
-        return exRates;
-      },
-
-      weatherProps() {
-        const weather = this.$store.getters.getWeatherState()
-        return weather;
-      },
+        exchangeRates: ({currency}) => currency.exchangeRates,
+        // TODO : Find a better naming to avoid this convuluted destructuring
+        weatherProps: ({currentWeather: { currentWeather : _currentWeather }}) => _currentWeather
+      })
     },
     methods: {
       ...mapActions(['getExchangeRatesList', 'getWeatherData']),

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div v-bind:key="article.title" v-for="article in newsArticlesList" class="post col-xl-6">
+    <div v-bind:key="article.title" v-for="article in newsArticles" class="post col-xl-6">
       <div class="post-thumbnail">
         <a :href=article.url class="animsition-link">
           <img :src=article.urlToImage alt="..." class="img-fluid" />
@@ -27,7 +27,6 @@
 <script>
   
   import { mapActions, mapState, mapGetters} from 'vuex'
-  
   export default {
     name: 'NewsBySource',
     props: ['source'],
@@ -35,25 +34,20 @@
       return {
         msg: 'Welcome to Your Vue.js App'
       }
-  
     },
-  
     created() {
       this.getNewsBySource(this.$props.source)
     },
-  
     computed: {
       ...mapState({
-        newsArticles: (aticlesState) => aticlesState.newsArticles
-      }),
-  
-      newsArticlesList() {
-        const articles = this.$store.getters.getArticlesBySource(this.$props.source)
-        return articles[this.$props.source];
-      }
-  
+        // currentNews is the name of the module, so we can destructure from the state
+        newsArticles: function ({currentNews}) {
+          // Can also use a getter like below:
+          // this.$store.getters.getArticlesBySource(this.$props.source)
+          return currentNews.newsArticles[this.$props.source]
+        }
+      }) 
     },
-  
     methods: {
       ...mapActions(['getNewsBySource'])
     },
@@ -62,39 +56,4 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1,
-  
-  h2 {
-  
-    font-weight: normal;
-  
-  }
-  
-  
-  
-  ul {
-  
-    list-style-type: none;
-  
-    padding: 0;
-  
-  }
-  
-  
-  
-  li {
-  
-    display: inline-block;
-  
-    margin: 0 10px;
-  
-  }
-  
-  
-  
-  a {
-  
-    color: #42b983;
-  
-  }
 </style>
