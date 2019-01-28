@@ -17,7 +17,7 @@
   import {VideoSources} from '../helpers/news-sources'
  import NewsBySource from '../widgets/NewsBySource'
   export default {
-    name: 'CulturePage',
+    name: 'VideoPage',
     data() {
       return {
         videoSources: VideoSources,

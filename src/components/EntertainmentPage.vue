@@ -17,7 +17,7 @@
   import {EntertainmentSources} from '../helpers/news-sources'
  import NewsBySource from '../widgets/NewsBySource'
   export default {
-    name: 'CulturePage',
+    name: 'EntertainmentPage',
     data() {
       return {
         entertainmentSources: EntertainmentSources,

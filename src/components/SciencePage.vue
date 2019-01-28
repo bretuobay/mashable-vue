@@ -17,7 +17,7 @@
   import {ScienceSources} from '../helpers/news-sources'
  import NewsBySource from '../widgets/NewsBySource'
   export default {
-    name: 'CulturePage',
+    name: 'SciencePage',
     data() {
       return {
         scienceSources: ScienceSources,
