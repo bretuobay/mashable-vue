@@ -15,7 +15,7 @@
 </template>
 <script>
   import {EntertainmentSources} from '../helpers/news-sources'
-  import NewsBySource from '@/components/NewsBySource'
+ import NewsBySource from '../widgets/NewsBySource'
   export default {
     name: 'CulturePage',
     data() {

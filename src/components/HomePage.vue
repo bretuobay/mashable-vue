@@ -10,14 +10,19 @@
           ></news-by-source>
         </div>
       </main>
-      <side-bar></side-bar>
+      <aside class="col-lg-4">
+        <weather></weather>
+        <currency-rates></currency-rates>
+      </aside>
     </div>
   </div>
 </template>
 <script>
+
   import {MainSources} from '../helpers/news-sources'
-  import NewsBySource from '@/components/NewsBySource'
-  import SideBar from '@/components/HomePageSideBar'
+  import NewsBySource from '../widgets/NewsBySource'
+  import Weather from '../widgets/Weather'
+  import CurrencyRates from '../widgets/CurrencyRates'
 
   export default {
     name: 'HomePage',
@@ -29,9 +34,9 @@
     },
     components: {
       'news-by-source': NewsBySource,
-      'side-bar' : SideBar
+      'weather' : Weather,
+      'currency-rates': CurrencyRates
     }
-  
   }
 </script>
 

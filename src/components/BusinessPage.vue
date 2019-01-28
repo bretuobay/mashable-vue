@@ -15,7 +15,7 @@
 </template>
 <script>
   import {BusinessSources} from '../helpers/news-sources'
-  import NewsBySource from '@/components/NewsBySource'
+  import NewsBySource from '../widgets/NewsBySource'
   export default {
     name: 'BusinessPage',
     data() {
