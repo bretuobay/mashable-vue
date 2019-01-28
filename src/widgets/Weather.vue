@@ -22,12 +22,18 @@
             Humidity :{{getHumidity(weatherProps)}}
          </div>
          <div class="pt-5">
+             <gmap-map
+               :center=getCenter(weatherProps)
+               :zoom=getZoom()
+               style="width:100%;  height: 400px;"
+            ></gmap-map> 
          </div>
       </div>
    </div>
 </template>
 <script>
 import { mapActions, mapState, mapGetters} from 'vuex'
+import {Map as GMap} from 'vue-googlemaps'
 import { get, debounce } from 'lodash'
 import { roundN } from '../helpers/weather-helper'
 export default {
@@ -53,11 +59,21 @@ export default {
 
       getHumidity : (weatherProps) => get(weatherProps,'main.humidity', null),
 
+      getCenter: (weatherProps) =>   ({ 
+         lat: get(weatherProps,'coord.lat', 0),
+         lng: get(weatherProps,'coord.lon', 0)
+       }),
+
+      getZoom: () => 7,
+
       debounceSearchInput: debounce(function(event) {
           this.currentCity = event.target.value;
           this.$store.dispatch('getWeatherData', this.currentCity);
       }, 500)
     },
+    components: {
+     'gmap-map': GMap
+    }
   }
 </script>
 
