@@ -22,7 +22,7 @@
   }
 
   const getters = {
-    getExchangeRates : (state) => (source) => {
+    getExchangeRates : (state)  => {
       return state.exchangeRates;
     }
   } 

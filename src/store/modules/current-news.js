@@ -23,16 +23,11 @@
 
   const getters = {
     getArticlesBySource : (state) => (source) => {
-      return state.newsArticles;
+      return state.newsArticles[source];
     }
   } 
 
   const mutations = {
-    
-    [types.GET_NEWS_DATA] (state) {
-      state.newsArticles
-    },
-  
     [types.GET_NEWS_DATA_FAILURE] (state,error) {
       state.newsError = error
     },
