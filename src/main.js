@@ -3,7 +3,6 @@ import { sync } from 'vuex-router-sync'
 
 import 'vue-googlemaps/dist/vue-googlemaps.css'
 import VueGoogleMaps from 'vue-googlemaps'
-import {} from './constants/appConstants'
 import App from './App'
 import router from './router'
 import store from './store/store'
